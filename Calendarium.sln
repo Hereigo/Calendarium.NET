@@ -3,17 +3,26 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendarium.Web", "Calendarium.Web\Calendarium.Web.csproj", "{B899AA6E-95F4-4D64-9303-BC70EE21EEE5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendarium.Web", "src\Calendarium.Web\Calendarium.Web.csproj", "{B899AA6E-95F4-4D64-9303-BC70EE21EEE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendarium.Application", "Calendarium.Application\Calendarium.Application.csproj", "{5FEE7A5C-F591-4400-977C-BA339B9ABEA4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendarium.Application", "src\Calendarium.Application\Calendarium.Application.csproj", "{5FEE7A5C-F591-4400-977C-BA339B9ABEA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendarium.Domain", "Calendarium.Domain\Calendarium.Domain.csproj", "{3AECFED5-9E86-4271-BFA4-140FCA9F4715}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendarium.Domain", "src\Calendarium.Domain\Calendarium.Domain.csproj", "{3AECFED5-9E86-4271-BFA4-140FCA9F4715}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendarium.Infrastructure", "Calendarium.Infrastructure\Calendarium.Infrastructure.csproj", "{D2DD53EB-E34B-435F-A57E-9ED1D709D217}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendarium.Infrastructure", "src\Calendarium.Infrastructure\Calendarium.Infrastructure.csproj", "{D2DD53EB-E34B-435F-A57E-9ED1D709D217}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendarium.UnitTests", "Calendarium.UnitTests\Calendarium.UnitTests.csproj", "{F8C5FBCD-065E-47FF-B2C4-0AF207F072CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendarium.UnitTests", "tests\Calendarium.UnitTests\Calendarium.UnitTests.csproj", "{F8C5FBCD-065E-47FF-B2C4-0AF207F072CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendarium.IntegrationTests", "Calendarium.IntegrationTests\Calendarium.IntegrationTests.csproj", "{F7B531B9-292A-4B64-9BC1-DA99EC600EB8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendarium.IntegrationTests", "tests\Calendarium.IntegrationTests\Calendarium.IntegrationTests.csproj", "{F7B531B9-292A-4B64-9BC1-DA99EC600EB8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{CA8B83B1-49E8-45A8-82D3-9859C158EB5B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -100,5 +109,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B899AA6E-95F4-4D64-9303-BC70EE21EEE5} = {CA8B83B1-49E8-45A8-82D3-9859C158EB5B}
+		{5FEE7A5C-F591-4400-977C-BA339B9ABEA4} = {CA8B83B1-49E8-45A8-82D3-9859C158EB5B}
+		{3AECFED5-9E86-4271-BFA4-140FCA9F4715} = {CA8B83B1-49E8-45A8-82D3-9859C158EB5B}
+		{D2DD53EB-E34B-435F-A57E-9ED1D709D217} = {CA8B83B1-49E8-45A8-82D3-9859C158EB5B}
+		{F8C5FBCD-065E-47FF-B2C4-0AF207F072CF} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{F7B531B9-292A-4B64-9BC1-DA99EC600EB8} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 EndGlobal

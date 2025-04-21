@@ -8,10 +8,10 @@ A modular ASP.NET MVC application following Clean Architecture principles.
 MyApp.sln
 |
 ├── src
-│   ├── MyApp.Web               --> ASP.NET MVC UI project
 │   ├── MyApp.Application       --> Business logic, use cases, DTOs
 │   ├── MyApp.Domain            --> Core domain entities and interfaces
 │   ├── MyApp.Infrastructure    --> Infrastructure implementations (EF, external APIs)
+│   ├── MyApp.Web               --> ASP.NET MVC UI project
 │
 ├── tests
 │   ├── MyApp.UnitTests         --> Unit tests
@@ -27,16 +27,15 @@ MyApp.sln
 ```sql
 MyApp.Web
 │
+├── Content (CSS/images)
 ├── Controllers
+├── Filters
+├── ViewModels
 ├── Views
 │   ├── Home
 │   └── Shared
-├── ViewModels
-├── Filters
 ├── Scripts
-├── Content (CSS/images)
 └── Startup.cs / Global.asax.cs
-
 ```
 
 ### Application Layer - Contains business logic and application use cases.
@@ -44,11 +43,11 @@ MyApp.Web
 ```sql
 MyApp.Application
 │
+├── DTOs                     --> Data Transfer Objects
+├── Exceptions
 ├── Interfaces               --> Interfaces for services, repositories
 ├── Services                 --> Business services (application layer logic)
-├── UseCases                 --> Specific use case handlers
-├── DTOs                     --> Data Transfer Objects
-└── Exceptions
+└── UseCases                 --> Specific use case handlers
 ```
 
 ### Domain Layer - Core business logic, models, and rules. Should be free of any dependencies.
@@ -56,11 +55,11 @@ MyApp.Application
 ```sql
 MyApp.Domain
 │
+├── DomainEvents
 ├── Entities
-├── ValueObjects
-├── Interfaces               --> Core contracts (e.g., IRepository)
 ├── Enums
-└── DomainEvents
+├── Interfaces               --> Core contracts (e.g., IRepository)
+└── ValueObjects
 ```
 
 ### Infrastructure Layer - Contains concrete implementations: database access, external services, etc.
@@ -68,12 +67,12 @@ MyApp.Domain
 ```sql
 MyApp.Infrastructure
 │
+├── Configuration
 ├── Data
-│   ├── Migrations
 │   ├── Context              --> EF DbContext
+│   ├── Migrations
 │   └── Repositories
-├── Services                 --> External service implementations (e.g., email, file storage)
-└── Configuration
+└── Services                 --> External service implementations (e.g., email, file storage)
 ```
 
 ### Test Projects - Each test project should be in its own folder with a similar structure to the layers they're testing.
@@ -91,9 +90,9 @@ MyApp.IntegrationTests
 ### Extras (Optional)
 
 ```sql
-MyApp.Shared: Shared utilities like logging, constants, helpers
+MyApp.Shared (logging, constants, helpers, etc.)
 
-MyApp.Contracts: If you use message-based architecture (e.g., CQRS, MediatR)
+MyApp.Contracts (for message-based architecture e.g., CQRS, MediatR)
 ```
 
 ### Step-by-step CLI generation:

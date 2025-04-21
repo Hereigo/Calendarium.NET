@@ -5,17 +5,17 @@ A modular ASP.NET MVC application following Clean Architecture principles.
 ## 📦 Solution Structure
 
 ```sql
-MyApp.sln
+Calendarium.sln
 |
 ├── src
-│   ├── MyApp.Web               --> ASP.NET MVC UI project
-│   ├── MyApp.Application       --> Business logic, use cases, DTOs
-│   ├── MyApp.Domain            --> Core domain entities and interfaces
-│   ├── MyApp.Infrastructure    --> Infrastructure implementations (EF, external APIs)
+│   ├── Calendarium.Web               --> ASP.NET MVC UI project
+│   ├── Calendarium.Application       --> Business logic, use cases, DTOs
+│   ├── Calendarium.Domain            --> Core domain entities and interfaces
+│   ├── Calendarium.Infrastructure    --> Infrastructure implementations (EF, external APIs)
 │
 ├── tests
-│   ├── MyApp.UnitTests         --> Unit tests
-│   ├── MyApp.IntegrationTests  --> Integration tests
+│   ├── Calendarium.UnitTests         --> Unit tests
+│   ├── Calendarium.IntegrationTests  --> Integration tests
 │
 ├── build                      --> Build scripts, CI/CD configs
 ├── docs                       --> Documentation
@@ -25,7 +25,7 @@ MyApp.sln
 ### Presentation Layer - Handles all HTTP interaction (MVC Controllers, Views, Filters, ViewModels).
 
 ```sql
-MyApp.Web
+Calendarium.Web
 │
 ├── Controllers
 ├── Views
@@ -42,7 +42,7 @@ MyApp.Web
 ### Application Layer - Contains business logic and application use cases.
 
 ```sql
-MyApp.Application
+Calendarium.Application
 │
 ├── Interfaces               --> Interfaces for services, repositories
 ├── Services                 --> Business services (application layer logic)
@@ -54,7 +54,7 @@ MyApp.Application
 ### Domain Layer - Core business logic, models, and rules. Should be free of any dependencies.
 
 ```sql
-MyApp.Domain
+Calendarium.Domain
 │
 ├── Entities
 ├── ValueObjects
@@ -66,7 +66,7 @@ MyApp.Domain
 ### Infrastructure Layer - Contains concrete implementations: database access, external services, etc.
 
 ```sql
-MyApp.Infrastructure
+Calendarium.Infrastructure
 │
 ├── Data
 │   ├── Migrations
@@ -79,11 +79,11 @@ MyApp.Infrastructure
 ### Test Projects - Each test project should be in its own folder with a similar structure to the layers they're testing.
 
 ```sql
-MyApp.UnitTests
+Calendarium.UnitTests
 ├── Application
 ├── Domain
 
-MyApp.IntegrationTests
+Calendarium.IntegrationTests
 ├── Infrastructure
 ├── Web
 ```
@@ -91,43 +91,43 @@ MyApp.IntegrationTests
 ### Extras (Optional)
 
 ```sql
-MyApp.Shared: Shared utilities like logging, constants, helpers
+Calendarium.Shared: Shared utilities like logging, constants, helpers
 
-MyApp.Contracts: If you use message-based architecture (e.g., CQRS, MediatR)
+Calendarium.Contracts: If you use message-based architecture (e.g., CQRS, MediatR)
 ```
 
 ### Step-by-step CLI generation:
 
 ```sh
-mkdir MyApp
-cd MyApp
-dotnet new sln -n MyApp
-dotnet new mvc -n MyApp.Web
-dotnet new classlib -n MyApp.Application
-dotnet new classlib -n MyApp.Domain
-dotnet new classlib -n MyApp.Infrastructure
+mkdir Calendarium
+cd Calendarium
+dotnet new sln -n Calendarium
+dotnet new mvc -n Calendarium.Web
+dotnet new classlib -n Calendarium.Application
+dotnet new classlib -n Calendarium.Domain
+dotnet new classlib -n Calendarium.Infrastructure
 
-dotnet new xunit -n MyApp.UnitTests
-dotnet new xunit -n MyApp.IntegrationTests
+dotnet new xunit -n Calendarium.UnitTests
+dotnet new xunit -n Calendarium.IntegrationTests
 
-dotnet sln add ./MyApp.Web/MyApp.Web.csproj
-dotnet sln add ./MyApp.Application/MyApp.Application.csproj
-dotnet sln add ./MyApp.Domain/MyApp.Domain.csproj
-dotnet sln add ./MyApp.Infrastructure/MyApp.Infrastructure.csproj
-dotnet sln add ./MyApp.UnitTests/MyApp.UnitTests.csproj
-dotnet sln add ./MyApp.IntegrationTests/MyApp.IntegrationTests.csproj
+dotnet sln add ./Calendarium.Web/Calendarium.Web.csproj
+dotnet sln add ./Calendarium.Application/Calendarium.Application.csproj
+dotnet sln add ./Calendarium.Domain/Calendarium.Domain.csproj
+dotnet sln add ./Calendarium.Infrastructure/Calendarium.Infrastructure.csproj
+dotnet sln add ./Calendarium.UnitTests/Calendarium.UnitTests.csproj
+dotnet sln add ./Calendarium.IntegrationTests/Calendarium.IntegrationTests.csproj
 
 # Dependencies:
 
-dotnet add ./MyApp.Web/MyApp.Web.csproj reference ./MyApp.Application/MyApp.Application.csproj
-dotnet add ./MyApp.Web/MyApp.Web.csproj reference ./MyApp.Infrastructure/MyApp.Infrastructure.csproj
+dotnet add ./Calendarium.Web/Calendarium.Web.csproj reference ./Calendarium.Application/Calendarium.Application.csproj
+dotnet add ./Calendarium.Web/Calendarium.Web.csproj reference ./Calendarium.Infrastructure/Calendarium.Infrastructure.csproj
 
-dotnet add ./MyApp.Application/MyApp.Application.csproj reference ./MyApp.Domain/MyApp.Domain.csproj
+dotnet add ./Calendarium.Application/Calendarium.Application.csproj reference ./Calendarium.Domain/Calendarium.Domain.csproj
 
-dotnet add ./MyApp.Infrastructure/MyApp.Infrastructure.csproj reference ./MyApp.Application/MyApp.Application.csproj
-dotnet add ./MyApp.Infrastructure/MyApp.Infrastructure.csproj reference ./MyApp.Domain/MyApp.Domain.csproj
+dotnet add ./Calendarium.Infrastructure/Calendarium.Infrastructure.csproj reference ./Calendarium.Application/Calendarium.Application.csproj
+dotnet add ./Calendarium.Infrastructure/Calendarium.Infrastructure.csproj reference ./Calendarium.Domain/Calendarium.Domain.csproj
 
-dotnet add ./MyApp.Infrastructure/MyApp.Infrastructure.csproj package Microsoft.EntityFrameworkCore
+dotnet add ./Calendarium.Infrastructure/Calendarium.Infrastructure.csproj package Microsoft.EntityFrameworkCore
 
 # Optionally, use MediatR or AutoMapper if you're building a full clean architecture setup.
 ```

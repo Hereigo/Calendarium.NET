@@ -17,8 +17,8 @@ MyApp.sln
 │   ├── MyApp.UnitTests         --> Unit tests
 │   ├── MyApp.IntegrationTests  --> Integration tests
 │
-├── build                      --> Build scripts, CI/CD configs
-├── docs                       --> Documentation
+├── build                       --> Build scripts, CI/CD configs
+├── docs                        --> Documentation
 └── README.md
 ```
 
@@ -72,7 +72,7 @@ MyApp.Infrastructure
 │   ├── Context              --> EF DbContext
 │   ├── Migrations
 │   └── Repositories
-└── Services                 --> External service implementations (e.g., email, file storage)
+└── Services                 --> External services implementations (e.g., email, file storage)
 ```
 
 ### Test Projects - Each test project should be in its own folder with a similar structure to the layers they're testing.

@@ -138,4 +138,4 @@ dotnet add ./MyApp.Infrastructure/MyApp.Infrastructure.csproj package Microsoft.
 # Optionally, use MediatR or AutoMapper if you're building a full clean architecture setup.
 ```
 
-########################### find - Clean-Architecture-ASP.NET-Core-MVC
+https://www.c-sharpcorner.com/article/a-clean-architecture-for-building-web-applications-with-asp-net-core-m/

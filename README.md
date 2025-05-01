@@ -21,8 +21,49 @@ MyApp.sln
 ├── docs                        --> Documentation
 └── README.md
 ```
+------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
+### DOMAIN Layer -→ Core business logic, models, and rules. (Free of any dependencies.)
 
-### Presentation Layer - Handles all HTTP interaction (MVC Controllers, Views, Filters, ViewModels).
+```sql
+MyApp.Domain
+│
+├── DomainEvents
+├── Entities
+├── Enums
+├── Interfaces               --> Core contracts (e.g., IRepository)
+└── ValueObjects
+```
+------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
+### APPLICATION Layer -→ Business logic, app Use Cases, Services, Mappers. (Depends on Domain.)
+
+```sql
+MyApp.Application
+│
+├── DTOs                     --> Data Transfer Objects
+├── Exceptions
+├── Interfaces               --> Interfaces for services, repositories
+├── Services                 --> Business services (application layer logic)
+└── UseCases                 --> Specific use case handlers
+```
+------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
+### INFRASTRUCTURE Layer -→ Implementations: DAL, logging, external services, etc. (Depends on App & Domain.)
+
+```sql
+MyApp.Infrastructure
+│
+├── Configuration
+├── Data
+│   ├── Context              --> EF DbContext
+│   ├── Migrations
+│   └── Repositories
+└── Services                 --> External services implementations (e.g., email, file storage)
+```
+------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
+### PRESENTATION Layer -→ Handles all HTTP interaction (MVC Controllers, Views, Filters, ViewModels).
 
 ```sql
 MyApp.Web
@@ -37,45 +78,18 @@ MyApp.Web
 ├── Scripts
 └── Startup.cs / Global.asax.cs
 ```
-
-### Application Layer - Contains business logic and application use cases.
-
-```sql
-MyApp.Application
-│
-├── DTOs                     --> Data Transfer Objects
-├── Exceptions
-├── Interfaces               --> Interfaces for services, repositories
-├── Services                 --> Business services (application layer logic)
-└── UseCases                 --> Specific use case handlers
-```
-
-### Domain Layer - Core business logic, models, and rules. Should be free of any dependencies.
+------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
+### Extras (Optional)
 
 ```sql
-MyApp.Domain
-│
-├── DomainEvents
-├── Entities
-├── Enums
-├── Interfaces               --> Core contracts (e.g., IRepository)
-└── ValueObjects
+MyApp.Shared (logging, constants, helpers, etc.)
+
+MyApp.Contracts (for message-based architecture e.g., CQRS, MediatR)
 ```
-
-### Infrastructure Layer - Contains concrete implementations: database access, external services, etc.
-
-```sql
-MyApp.Infrastructure
-│
-├── Configuration
-├── Data
-│   ├── Context              --> EF DbContext
-│   ├── Migrations
-│   └── Repositories
-└── Services                 --> External services implementations (e.g., email, file storage)
-```
-
-### Test Projects - Each test project should be in its own folder with a similar structure to the layers they're testing.
+------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
+### TESTS Projects -→ Each test project should be in its own folder with a similar structure to the layers they're testing.
 
 ```sql
 MyApp.UnitTests
@@ -86,15 +100,8 @@ MyApp.IntegrationTests
 ├── Infrastructure
 ├── Web
 ```
-
-### Extras (Optional)
-
-```sql
-MyApp.Shared (logging, constants, helpers, etc.)
-
-MyApp.Contracts (for message-based architecture e.g., CQRS, MediatR)
-```
-
+------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
 ### Step-by-step CLI generation:
 
 ```sh
